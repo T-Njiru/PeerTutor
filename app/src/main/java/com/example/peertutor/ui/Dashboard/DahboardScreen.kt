@@ -6,8 +6,10 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Person
@@ -22,19 +24,20 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.peertutor.ui.signup.LoginScreen
+import com.example.peertutor.R
 import com.example.peertutor.ui.theme.PeerTutorTheme
 
 @Composable
 fun DashboardScreen() {
     val username = "Ngina Kamau" // 🔹 placeholder for logged-in user
-    val units = listOf("HTML", "CSS", "Javascript", "PHP", "Java", "C#")
+    val units = listOf("HTML", "CSS", "Javascript", "PHP", "Java", "C#") // 🔹 placeholder for user units
 
     Column(
         modifier = Modifier
             .fillMaxSize()
             .background(Color(0xFFF8F9FD))
             .padding(16.dp)
+            .verticalScroll(rememberScrollState()) // ✅ makes it scrollable
     ) {
         // Header: Profile and Greeting
         Row(
@@ -106,7 +109,7 @@ fun DashboardScreen() {
                     )
                     Spacer(modifier = Modifier.height(8.dp))
                     Button(
-                        onClick = { /* TODO */ },
+                        onClick = { /* TODO: Add navigation to courses */ },
                         colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFFFA726))
                     ) {
                         Text("Get Started", color = Color.White)
@@ -114,7 +117,7 @@ fun DashboardScreen() {
                 }
 
                 Image(
-                    painter = painterResource(id = R.drawable.dev), // 🔹 placeholder image (add your png)
+                    painter = painterResource(R.drawable.account), // 🔹 placeholder image
                     contentDescription = "Courses Illustration",
                     modifier = Modifier.size(90.dp)
                 )
@@ -137,7 +140,9 @@ fun DashboardScreen() {
             columns = GridCells.Fixed(2),
             verticalArrangement = Arrangement.spacedBy(12.dp),
             horizontalArrangement = Arrangement.spacedBy(12.dp),
-            modifier = Modifier.fillMaxHeight()
+            modifier = Modifier
+                .fillMaxWidth()
+                .heightIn(min = 300.dp) // ✅ keeps enough space to scroll below
         ) {
             items(units) { unit ->
                 val color = when (unit) {
@@ -163,10 +168,11 @@ fun DashboardScreen() {
         }
     }
 }
-@Preview(showBackground = true)
+
+@Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun DashboardPreview() {
+fun DashboardScreenPreview() {
     PeerTutorTheme {
-        Dashboard()
+        DashboardScreen()
     }
 }
