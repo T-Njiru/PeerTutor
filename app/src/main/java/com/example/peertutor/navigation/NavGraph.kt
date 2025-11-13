@@ -7,11 +7,13 @@ import androidx.navigation.compose.composable
 import com.example.peertutor.ui.splash.SplashScreen
 import com.example.peertutor.ui.signup.SignUpScreen
 import com.example.peertutor.ui.signup.LoginScreen
+import com.example.peertutor.ui.Dashboard.DashboardScreen
 
 sealed class Screen(val route: String) {
     object Splash : Screen("splash")
     object SignUp : Screen("signup")
     object Login : Screen("login")
+    object Dashboard : Screen("dashboard")
 }
 
 @Composable
@@ -30,15 +32,21 @@ fun NavGraph(navController: NavHostController) {
         composable(Screen.SignUp.route) {
             SignUpScreen(
                 onCancelClick = { navController.popBackStack() },
-                onLoginClick = { navController.navigate(Screen.Login.route) }
+                onLoginClick = { navController.navigate(Screen.Login.route) },
+                onSignUpSuccess = { navController.navigate(Screen.Dashboard.route) }
             )
         }
 
         composable(Screen.Login.route) {
             LoginScreen(
                 onCancelClick = { navController.popBackStack() },
-                onLoginClick = { navController.navigate(Screen.SignUp.route) }
+                onLoginClick = { navController.navigate(Screen.SignUp.route) },
+                onLoginSuccess = { navController.navigate(Screen.Dashboard.route) }
             )
+        }
+
+        composable(Screen.Dashboard.route) {
+            DashboardScreen()
         }
     }
 }

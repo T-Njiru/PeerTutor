@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "109375771213",
+    "project_id": "peertutor-42d5b",
+    "storage_bucket": "peertutor-42d5b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:109375771213:android:023ba42e0152275fb4c204",
+        "android_client_info": {
+          "package_name": "com.example.peertutor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "109375771213-ois61tsre40q6rcgjmj10gj83jog7cmv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.peertutor",
+            "certificate_hash": "4a0c6f86df134c51ddff71b403b90812d94a5554"
+          }
+        },
+        {
+          "client_id": "109375771213-5namn1dcle61rm2b7at1qij3bb0slvni.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFBtIMlahAuudLYZcBeOnSXqi53t1AS0s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "109375771213-5namn1dcle61rm2b7at1qij3bb0slvni.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
